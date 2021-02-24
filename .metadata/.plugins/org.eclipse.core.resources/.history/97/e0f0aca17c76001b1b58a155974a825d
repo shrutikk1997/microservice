@@ -1,0 +1,5 @@
+package movie_Catlog_Service.controller;
+
+public class CatLogItem {
+
+}

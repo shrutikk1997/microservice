@@ -1,0 +1,5 @@
+package movie_info_service.controller;
+
+public class Controller {
+
+}
