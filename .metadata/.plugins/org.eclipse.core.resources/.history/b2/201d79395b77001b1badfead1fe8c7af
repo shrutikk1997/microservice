@@ -1,0 +1,54 @@
+package movie_Catlog_Service.controller;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
+
+import movie_Catlog_Service.model.CatLogItem;
+import movie_Catlog_Service.model.Movie;
+import movie_Catlog_Service.model.Rating;
+
+
+@RestController
+@RequestMapping("/catlog")
+public class Controller {
+	
+	@GetMapping("/getList")
+	public List<CatLogItem>   getCatlog()
+	{
+		RestTemplate resttemplate=new RestTemplate();
+		List<movie_Catlog_Service.model.Movie>l1= resttemplate.getForObject("http://localhost:8082/movie_Info/getMovieInfo", List.class );
+          System.out.println(l1);
+      	RestTemplate resttemplate1=new RestTemplate();
+           List<Rating>   l2= resttemplate1.getForObject("http://localhost:8083/rating/getMovieRating", List.class);
+	       System.out.println(l2);
+	       Movie m1=l1.get(0);
+	       System.out.println(m1.toString());
+//	     String mid=l1.get(0).getMovieId();
+//	     System.out.println("mid1="+mid);
+//	      String mid2=l2.get(0).getMovieId();
+//	      System.out.println("mid2"+mid2);
+//	      
+//	     List<CatLogItem>l3=new ArrayList<CatLogItem>();
+//	      for(int i=0;i<2;i++)
+//	      {
+//	    	  String mid1=l1.get(0).getMovieId();
+//		      String mid2=l2.get(0).getMovieId();
+//		      if(mid1.equals(mid2))
+//		      {
+//		    	 l3.add(new CatLogItem(mid1, "", l2.get(i).getRating()));
+//		    	 
+//		      }
+//		    
+//	      }
+		return null;
+	
+	}
+	
+
+}

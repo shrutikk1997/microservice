@@ -1,7 +1,9 @@
 package movie_info_service.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -11,11 +13,14 @@ import movie_info_service.model.Movie;
 @RequestMapping("/movie_Info")
 public class Controller {
 
-	@GetMapping("/{movieID}/{movieName}")
-	public Movie getMovie(@PathVariable(value="movieID")String movieId,
-			@PathVariable(value="movieName")String movieName)
+	@GetMapping("/getMovieInfo")
+	public   Movie getMovie()
 	{
-		return new Movie(movieId,movieName);
+//		 List<Movie> l1=new ArrayList<>();
+//		l1.add(snew Movie("1","pk"));
+		//l1.add(new Movie("2","timepass"));	
+		return new Movie("1","pk");
+		
 		
 	}
 	

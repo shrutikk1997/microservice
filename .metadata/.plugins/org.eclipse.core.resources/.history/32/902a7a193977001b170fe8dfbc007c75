@@ -1,0 +1,24 @@
+package movie_info_service.controller;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import movie_info_service.model.Movie;
+
+@RestController
+@RequestMapping("/movie_Info")
+public class Controller {
+
+	@GetMapping("/movie")
+	public Movie getMovie(@PathVariable(value="movieID")String movieId,
+			@PathVariable(value="movieName")String movieName)
+	{
+		return new Movie(movieId,movieName);
+		
+	}
+	
+	
+	
+}

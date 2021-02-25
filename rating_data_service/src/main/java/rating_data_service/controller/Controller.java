@@ -1,17 +1,35 @@
 package rating_data_service.controller;
 
+import java.util.ArrayList;
+import java.util.List;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import rating_data_service.model.Rating;
 
 @RestController
 @RequestMapping("/rating")
 public class Controller {
 
-	@GetMapping("/{movieID}")
-	public int getRating(@PathVariable("movieID")String movieid)
+	
+//	@GetMapping("/{movieID}")
+//	public List< Rating>  getRating(@PathVariable("movieID")String movieid)
+//	{
+//		List<Rating> l1=new ArrayList<Rating>();
+//		l1.add(new Rating("1",4));
+//		l1.add(new Rating("2",5));
+//		return l1;
+//	
+//	}
+//	
+	@GetMapping("/getMovieRating")
+	public List< Rating>  getRating()
 	{
-		return 2;
+		List<Rating> l1=new ArrayList<Rating>();
+		l1.add(new Rating("1",4));
+		l1.add(new Rating("2",5));
+		return l1;
+	
 	}
 }
