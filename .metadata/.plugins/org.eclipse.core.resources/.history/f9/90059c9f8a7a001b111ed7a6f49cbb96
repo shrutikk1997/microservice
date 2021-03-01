@@ -1,0 +1,5 @@
+package rating_data_service.model;
+
+public class RatingList {
+
+}
