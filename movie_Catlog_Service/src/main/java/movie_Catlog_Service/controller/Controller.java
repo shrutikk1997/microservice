@@ -30,7 +30,7 @@ public class Controller {
 	public List<CatLogItem>   getCatlog()
 	{
 	
-		Movie l1= resttemplate.getForObject("http://localhost:8082/movie_Info/getMovieInfo",Movie.class);
+		Movie l1= resttemplate.getForObject("http://movie-info-service/movie_Info/getMovieInfo",Movie.class);
           System.out.println(l1.toString());      	
       	
       	String s=l1.getMovieId();
@@ -42,7 +42,7 @@ public class Controller {
 //		l2.add(new Rating("1",4));
 //		l2.add(new Rating("2",5));
 
-      RatingList r=	resttemplate.getForObject("http://localhost:8083/rating/getMovieRating", RatingList.class);
+      RatingList r=	resttemplate.getForObject("http://rating-data-service/rating/getMovieRating", RatingList.class);
       
 		 List<CatLogItem>  l3=new ArrayList<>();
 	      l3.add(new CatLogItem(s,"desc",	r.getRating().get(0).getRating()));
